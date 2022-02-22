@@ -93,7 +93,7 @@ import os
 # def myFunc(e):
 #     return e
 
-start_path = 'C:/Users/Timm/PycharmProjects'
+start_path = 'C:/Users'
 
 list = []
 
