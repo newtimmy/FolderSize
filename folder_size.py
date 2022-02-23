@@ -1,4 +1,5 @@
 import os
+import csv
 
 class Folder:
 
@@ -43,14 +44,18 @@ list = []
 # for element in list:
 #     print(element.path + " " + str(element.convert_to_proper_size(element.size)))
 
-test = Folder("C:/Users")
+test = Folder("C:/Test")
 
 for name in os.listdir(test.path):
     list.append(Folder(os.path.join(test.path, name)))
 
 list.sort(reverse=True, key=lambda x: x.size)
 
-for element in list:
-    print(element.path + " " + str(element.convert_to_proper_size(element.size)))
+with open('readme.csv', 'w', encoding='UTF8', newline = '') as f:
+    writer = csv.writer(f)
+    writer.writerow(["path", "storage"])
+    for element in list:
+        writer.writerow([element.path, element.convert_to_proper_size(element.size)])
+        #f.write((element.path + " " + str(element.convert_to_proper_size(element.size)) + "\n"))
 
 #print(test.size)
