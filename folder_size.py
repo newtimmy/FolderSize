@@ -35,12 +35,22 @@ class Folder:
 start_path = 'C:/Users'
 list = []
 
-for dirpath, dirnames, filenames in os.walk(start_path):
-    list.append(Folder(dirpath))
+# for dirpath, dirnames, filenames in os.walk(start_path):
+#     list.append(Folder(dirpath))
+#
+# list.sort(reverse=True, key=lambda x: x.size)
+#
+# for element in list:
+#     print(element.path + " " + str(element.convert_to_proper_size(element.size)))
+
+test = Folder("C:/Users")
+
+for name in os.listdir(test.path):
+    list.append(Folder(os.path.join(test.path, name)))
 
 list.sort(reverse=True, key=lambda x: x.size)
 
 for element in list:
     print(element.path + " " + str(element.convert_to_proper_size(element.size)))
 
-
+#print(test.size)
